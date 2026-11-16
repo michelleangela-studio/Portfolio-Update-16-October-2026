@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Michelle's Job Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Scroll progress bar ===== -->
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress-fill"></div>
+  </div>
+
+  <!-- ===== Dark mode checkbox + instant theme restore (no flash) ===== -->
+  <input type="checkbox" id="theme-switch">
+  <script>
+    (function () {
+      var sw = document.getElementById('theme-switch');
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) sw.checked = true;
+      sw.addEventListener('change', function () {
+        localStorage.setItem('theme', sw.checked ? 'dark' : 'light');
+      });
+    })();
+  </script>
+
+  <!-- ===== Header ===== -->
+  <header class="main-header" id="main-header">
+    <div class="wrapper header-flex">
+      <a href="#" class="logo-text">Michelle Angela Manoppo</a>
+
+      <button class="nav-toggle" type="button"
+              aria-label="Toggle menu"
+              aria-expanded="false"
+              aria-controls="nav-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <div class="header-controls" id="header-controls">
+        <label for="theme-switch" class="theme-btn">🌙 Theme</label>
+        <a href="#login-modal" class="login-btn">Login</a>
+      </div>
+
+      <nav class="nav-menu" id="nav-menu">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="intro-section">
+    <div class="wrapper reveal">
+      <img src="images/Michelle.jpg" alt="Profile picture of Michelle" class="profile-pic">
+      <h1>Hi, I'm Michelle!</h1>
+
+      <!-- Typing effect -->
+      <p class="hero-roles">
+        <span id="typed" class="typed"></span><span class="caret" aria-hidden="true"></span>
+      </p>
+
+      <p style="margin-bottom: 15px; font-size: 16px;">
+        I was born on <time datetime="2008-02-18">18 February 2008</time>.
+      </p>
+      <p>Currently studying HCI at BINUS. I like making websites that look good and work well for everyone.</p>
+      <a href="#projects" class="btn-primary" style="margin-top: 15px; display: inline-block;">See my projects</a>
+    </div>
+  </section>
+
+  <!-- ===== About ===== -->
+  <section class="content-section" id="about">
+    <div class="wrapper reveal">
+      <h2>About me</h2>
+      <p>I'm currently in my first semester. I recently started learning web development and got really into front-end design. I hope to work as a lab assistant for Web Programming in the future, which seems pretty fun. Outside of coding, I like sketching UI concepts in Figma. I have 6 years of experience in programming especially python.</p>
+
+      <!-- Animated counters -->
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-number" data-target="6" data-suffix="+">0</span>
+          <span class="stat-label">Years coding</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-target="6">0</span>
+          <span class="stat-label">Skills</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-target="3">0</span>
+          <span class="stat-label">Projects</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Skills ===== -->
+  <section class="content-section grey-bg" id="skills">
+    <div class="wrapper reveal">
+      <h2>My Skills</h2>
+      <div class="skill-tags">
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Responsive Design</span>
+        <span class="tag">Python</span>
+        <span class="tag">UI/UX</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Projects ===== -->
+  <section class="content-section" id="projects">
+    <div class="wrapper">
+      <h2>University Projects</h2>
+      <p style="margin-bottom: 20px;">Here are some things I made for classes and personal practice.</p>
+
+      <div class="filters">
+        <button class="filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-btn" data-filter="web" aria-pressed="false">Web Dev</button>
+        <button class="filter-btn" data-filter="uiux" aria-pressed="false">UI/UX</button>
+      </div>
+      <p class="filter-count" id="filter-count" aria-live="polite"></p>
+
+      <div class="project-cards">
+        <div class="project-item reveal" data-category="web" data-delay="1">
+          <h3>ReadStore E-commerce</h3>
+          <p>Landing page for a bookstore. Built with HTML/CSS for the Week 6 lab. I focused on making the book grid responsive.</p>
+          <a href="#" class="project-link">Link coming soon</a>
+        </div>
+
+        <div class="project-item reveal" data-category="web" data-delay="2">
+          <img src="images/code.png" alt="Code icon" class="code-icon">
+          <h3>Learning Journey</h3>
+          <p>A simple timer. First time I actually used HTML and CSS to make something interactive instead of just static pages.</p>
+          <a href="https://github.com/michelleangela-studio/LAB-Assignment---Week-06-HCI-LAB-Updated/tree/main" target="_blank" class="project-link">Check GitHub</a>
+        </div>
+
+        <div class="project-item reveal" data-category="uiux" data-delay="3">
+          <h3>App I like the most</h3>
+          <p>Group project for UI/UX class. I did the high-fidelity prototype in Figma and coded the front-end part.</p>
+          <a href="#figma-modal" class="project-link">See Figma file</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section class="content-section grey-bg" id="contact">
+    <div class="wrapper reveal">
+      <h2>Contact</h2>
+      <p>
+        If you want to reach out, email me at
+        <a href="mailto:michelle.manoppo@email.com" id="email-link">michelle.manoppo@email.com</a>
+        <button type="button" class="copy-btn" id="copy-email" aria-label="Copy email to clipboard">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+        </button>
+      </p>
+
+      <div class="social-links">
+        <a href="#" target="_blank"><img src="images/instagram.png" alt="Instagram logo" class="social-icon"></a>
+        <a href="#" target="_blank"><img src="images/facebook.png" alt="Facebook logo" class="social-icon"></a>
+        <a href="#" target="_blank"><img src="images/twitter.png" alt="Twitter logo" class="social-icon"></a>
+      </div>
+
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required minlength="2" autocomplete="name">
+          <span class="error" id="name-error"></span>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email">
+          <span class="error" id="email-error"></span>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required minlength="10"></textarea>
+          <span class="error" id="message-error"></span>
+        </div>
+        <input type="text" name="company" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+        <button type="submit" class="btn-primary">Send message</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="bottom-footer">
+    <div class="wrapper">
+      <p>&copy; 2026 Michelle Angela Manoppo. Made for HCI Lab Week 6.</p>
+    </div>
+  </footer>
+
+  <!-- ===== Login Modal ===== -->
+  <div id="login-modal" class="modal-overlay">
+    <div class="modal-content">
+      <a href="#!" class="close-btn">&times;</a>
+      <h2>Welcome Back</h2>
+      <p>Log in to see my private projects.</p>
+      <form>
+        <label>Username</label>
+        <input type="text" placeholder="Enter username">
+        <label>Password</label>
+        <input type="password" placeholder="Enter password">
+        <button type="button" class="btn-primary" style="width: 100%; margin-top: 15px;">Sign In</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== Figma Image Modal ===== -->
+  <div id="figma-modal" class="image-modal">
+    <a href="#!" class="close-img-btn">&times;</a>
+    <img src="images/Website.png" alt="Figma Prototype Design">
+  </div>
+
+  <!-- ===== Back to top ===== -->
+  <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
+         stroke="currentColor" stroke-width="2.5"
+         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5"></path>
+      <path d="M5 12l7-7 7 7"></path>
+    </svg>
+  </button>
+
+  <!-- ===== Toast container ===== -->
+  <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
